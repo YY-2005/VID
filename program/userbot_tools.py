@@ -15,7 +15,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 
 
 @Client.on_message(
-    command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & other_filters
+    command(["انضم", f"userbotjoin@{BOT_USERNAME}"]) & other_filters
 )
 @check_blacklist()
 @authorized_users_only
@@ -32,13 +32,13 @@ async def join_chat(c: Client, m: Message):
             )
         await user.join_chat(invitelink)
         await remove_active_chat(chat_id)
-        return await user.send_message(chat_id, "✅ userbot joined chat")
+        return await user.send_message(chat_id, "✅ الحساب المساعد انضم للجموعه")
     except UserAlreadyParticipant:
-        return await user.send_message(chat_id, "✅ userbot already in chat")
+        return await user.send_message(chat_id, "✅ الحساب المساعد بالفعل منضم")
 
 
 @Client.on_message(
-    command(["userbotleave", f"userbotleave@{BOT_USERNAME}"]) & other_filters
+    command(["اخرج", f"userbotleave@{BOT_USERNAME}"]) & other_filters
 )
 @check_blacklist()
 @authorized_users_only
@@ -49,12 +49,12 @@ async def leave_chat(_, m: Message):
         await remove_active_chat(chat_id)
         return await _.send_message(
             chat_id,
-            "✅ userbot leaved chat",
+            "✅ الحساب المساعد خرج من المجموعه",
         )
     except UserNotParticipant:
         return await _.send_message(
             chat_id,
-            "❌ userbot already leave chat",
+            "❌ الحساب المساعد بالفعل خرج",
         )
 
 
