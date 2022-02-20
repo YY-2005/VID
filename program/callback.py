@@ -23,31 +23,31 @@ async def start_set(_, query: CallbackQuery):
     BOT_NAME = me_bot.first_name
     await query.answer("home start")
     await query.edit_message_text(
-        f"""✨ **Welcome [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Is a bot to play music and video in groups, through the Telegram Group video chat!**
+        f"""✨ **مرحبا [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
+💭 [{BOT_NAME}] (https://t.me/ {BOT_USERNAME}) ** هو روبوت لتشغيل الموسيقى والفيديو في مجموعات ، من خلال دردشة الفيديو Telegram Group! **
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
+💡 ** اكتشف جميع أوامر الروبوت وكيفية عملها من خلال النقر على زر »📚 الأوامر! **
 
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**""",
+🔖 ** لمعرفة كيفية استخدام هذا الروبوت ، يرجى النقر فوق »❓ زر الدليل الأساسي! **""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
+                        "➕ اضفني الي مجموعتك ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="user_guide")],
+                [InlineKeyboardButton("❓ الدليل الاساسي", callback_data="user_guide")],
                 [
-                    InlineKeyboardButton("📚 Commands", callback_data="command_list"),
-                    InlineKeyboardButton("❤ Donate", url=f"https://t.me/{OWNER_USERNAME}"),
+                    InlineKeyboardButton("📚 الاوامر", callback_data="command_list"),
+                    InlineKeyboardButton("❤ المالك", url=f"https://t.me/{OWNER_USERNAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 المجموعه الرسمية", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 القناة الرسمية", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
@@ -68,13 +68,13 @@ async def quick_set(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""ℹ️ Quick use Guide bot, please read fully !
 
-👩🏻‍💼 » /play - Type this with give the song title or youtube link or audio file to play Music. (Remember to don't play YouTube live stream by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » شغل - Type this with give the song title or youtube link or audio file to play Music. (Remember to don't play YouTube live stream by using this command!, because it will cause unforeseen problems.)
 
-👩🏻‍💼 » /vplay - Type this with give the song title or youtube link or video file to play Video. (Remember to don't play YouTube live video by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » فيديو - Type this with give the song title or youtube link or video file to play Video. (Remember to don't play YouTube live video by using this command!, because it will cause unforeseen problems.)
 
-👩🏻‍💼 » /vstream - Type this with give the YouTube live stream video link or m3u8 link to play live Video. (Remember to don't play local audio/video files or non-live YouTube video by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » لايف - Type this with give the YouTube live stream video link or m3u8 link to play live Video. (Remember to don't play local audio/video files or non-live YouTube video by using this command!, because it will cause unforeseen problems.)
 
-❓ Have questions? Contact us in [Support Group](https://t.me/{GROUP_SUPPORT}).""",
+❓ هل لديك أسئلة؟ اتصل بنا في [مجموعه الدعم] (https://t.me/ {GROUP_SUPPORT}).""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="user_guide")]]
         ),
@@ -90,23 +90,20 @@ async def guide_set(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""❓ How to use this Bot ?, read the Guide below !
 
-1.) First, add this bot to your Group.
-2.) Then, promote this bot as administrator on the Group also give all permissions except Anonymous admin.
-3.) After promoting this bot, type /reload in Group to update the admin data.
-3.) Invite @{ass_uname} to your group or type /userbotjoin to invite her, unfortunately the userbot will joined by itself when you type `/play (song name)` or `/vplay (song name)`.
-4.) Turn on/Start the video chat first before start to play video/music.
+1.) أولاً ، أضف هذا الروبوت إلى مجموعتك.
+2.) بعد ذلك ، قم بترقية هذا الروبوت كمسؤول في المجموعة ، وقم أيضًا بإعطاء جميع الأذونات باستثناء المسؤول المجهول.
+3.) بعد ترقية هذا الروبوت ، اكتب ريلود المجموعة لتحديث بيانات المسؤول.
+3.) قم بدعوة @ {ass_uname} إلى مجموعتك أو اكتب "انضم" لدعوتها ، لسوء الحظ سينضم userbot بنفسه عندما تكتب `` شغل (اسم الاغنية) 'أو `` فيديو (اسم الفيديو) `.
+4.) قم بتشغيل / بدء محادثة الفيديو أولاً قبل البدء في تشغيل الفيديو / الموسيقى.
+`-النهاية ، تم إعداد كل شيء -`
 
-`- END, EVERYTHING HAS BEEN SETUP -`
-
-📌 If the userbot not joined to video chat, make sure if the video chat already turned on and the userbot in the chat.
-
-💡 If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}.""",
+💡 إذا كانت لديك أسئلة متابعة حول هذا الروبوت ، فيمكنك إخبارها في دردشة الدعم هنا: @ {GROUP_SUPPORT}.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("» Quick use Guide «", callback_data="quick_use")
+                    InlineKeyboardButton("»دليل الاستخدام السريع«", callback_data="quick_use")
                 ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="home_start")
+                    InlineKeyboardButton("🔙 رجوع", callback_data="home_start")
                 ],
             ]
         ),
@@ -127,14 +124,14 @@ All commands can be used with (`! / .`) handler""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👮🏻‍♀️ Admins Commands", callback_data="admin_command"),
+                    InlineKeyboardButton("👮🏻‍♀️ اوامر الادمن", callback_data="admin_command"),
                 ],[
-                    InlineKeyboardButton("👩🏻‍💼 Users Commands", callback_data="user_command"),
+                    InlineKeyboardButton("👩🏻‍💼 اوامر جميع المستخدمين", callback_data="user_command"),
                 ],[
-                    InlineKeyboardButton("Sudo Commands", callback_data="sudo_command"),
-                    InlineKeyboardButton("Owner Commands", callback_data="owner_command"),
+                    InlineKeyboardButton("اوامر سودو", callback_data="sudo_command"),
+                    InlineKeyboardButton("اوامر المالك", callback_data="owner_command"),
                 ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="home_start")
+                    InlineKeyboardButton("رجوع", callback_data="home_start")
                 ],
             ]
         ),
@@ -149,9 +146,9 @@ async def user_set(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""✏️ Command list for all user.
 
-» /play (song name/link) - play music on video chat
-» /vplay (video name/link) - play video on video chat
-» /vstream (m3u8/yt live link) - play live stream video
+» شغل (اسم الاغنيه/اللينك) - لتشغيل الاغاني في المكالمه
+» فيديو (اسم الفيديو/اللينك) - لتشغيل الفيديو في المكالمه
+» لايف (m3u8/رابط اللايف من يوتيوب) - لتشغيل البث في المكالمه
 » /playlist - see the current playing song
 » /lyric (query) - scrap the song lyric
 » /video (query) - download video from youtube
