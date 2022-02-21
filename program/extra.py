@@ -23,7 +23,7 @@ from driver.database.dbqueue import get_active_chats
 from config import BOT_USERNAME as uname
 
 
-@Client.on_message(command(["broadcast", f"broadcast@{uname}"]) & ~filters.edited)
+@Client.on_message(command(["تثبيت", f"broadcast@{uname}"]) & ~filters.edited)
 @bot_creator
 async def broadcast_message_nopin(c: Client, message: Message):
     if not message.reply_to_message:
@@ -66,7 +66,7 @@ async def broadcast_message_nopin(c: Client, message: Message):
     await message.reply_text(f"✅ Broadcast complete in {sent} Group.")
 
 
-@Client.on_message(command(["broadcast_pin", f"broadcast_pin@{uname}"]) & ~filters.edited)
+@Client.on_message(command(["تثبيت مع اشعار", f"broadcast_pin@{uname}"]) & ~filters.edited)
 @bot_creator
 async def broadcast_message_pin(c: Client, message: Message):
     if not message.reply_to_message:
