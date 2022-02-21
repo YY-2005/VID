@@ -51,7 +51,7 @@ async def update_admin(client, message: Message):
 
 
 @Client.on_message(
-    command(["stop", f"stop@{BOT_USERNAME}", "end", f"end@{BOT_USERNAME}", "vstop"])
+    command(["ايقاف", f"stop@{BOT_USERNAME}", "انهاء", f"end@{BOT_USERNAME}", "vstop"])
     & other_filters
 )
 @authorized_users_only
@@ -63,7 +63,7 @@ async def stop(client, m: Message):
             await calls.leave_group_call(chat_id)
             await remove_active_chat(chat_id)
             clear_queue(chat_id)
-            await m.reply("✅ The userbot has disconnected from the video chat.")
+            await m.reply("✅ تم انهاء تشغيل الاغاني في المكالمه.")
         except Exception as e:
             traceback.print_exc()
             await m.reply(f"🚫 **error:**\n\n`{e}`")
@@ -72,7 +72,7 @@ async def stop(client, m: Message):
 
 
 @Client.on_message(
-    command(["pause", f"pause@{BOT_USERNAME}", "vpause"]) & other_filters
+    command(["وقف", f"pause@{BOT_USERNAME}", "vpause"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
@@ -96,7 +96,7 @@ async def pause(client, m: Message):
 
 
 @Client.on_message(
-    command(["resume", f"resume@{BOT_USERNAME}", "vresume"]) & other_filters
+    command(["كمل", f"resume@{BOT_USERNAME}", "vresume"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
