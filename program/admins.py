@@ -49,6 +49,29 @@ async def update_admin(client, message: Message):
         "✅ Bot **reloaded correctly !**\n✅ **Admin list** has **updated !**"
     )
 
+    @app.on_message(filters.command("السجل") & filters.user(SUDOERS))
+async def logger(_, message):
+    if LOG_SESSION == "None":
+        return await message.reply_text(
+            "No Logger Account Defined.\n\nPlease Set <code>LOG_SESSION</code> var and then try loggging."
+        )
+    usage = "**Usage:**\n/logger [تفعيل|الغاء التفعيل]"
+    if len(message.command) != 2:
+        return await message.reply_text(usage)
+    chat_id = message.chat.id
+    state = message.text.split(None, 1)[1].strip()
+    state = state.lower()
+    if state == "تفعيل":
+        user_id = 5
+        await add_on(user_id)
+        await message.reply_text("Enabled Logging")
+    elif state == "الغاء":
+        user_id = 5
+        await add_off(user_id)
+        await message.reply_text("Logging Disabled")
+    else:
+        await message.reply_text(usage)
+
 
 @Client.on_message(
     command(["ايقاف", f"stop@{BOT_USERNAME}", "انهاء", f"end@{BOT_USERNAME}", "vstop"])
