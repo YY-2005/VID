@@ -158,7 +158,7 @@ async def user_set(_, query: CallbackQuery):
 » /uptime - show the bot uptime status
 » /alive - show the bot alive info (in Group only)
 
-⚡️ __Powered by {BOT_NAME} AI__""",
+⚡️ __ بدعم من {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),
@@ -171,22 +171,21 @@ async def admin_set(_, query: CallbackQuery):
     BOT_NAME = me_bot.first_name
     await query.answer("admin commands")
     await query.edit_message_text(
-        f"""✏️ Command list for group admin.
+        f"""✏️ قائمة الأوامر لمسؤول المجموعة.
+» وقف - إيقاف تشغيل المسار الحالي مؤقتًا
+» كمل - تشغيل المسار المتوقف مؤقتًا مسبقًا
+» تخطي - يذهب إلى المسار التالي
+» ايقاف - ايقاف تشغيل المسار ومسح الطابور
+» كتم - كتم صوت userbot المتدفق في مكالمة جماعية
+» الغاء الكتم - قم بإلغاء كتم صوت userbot المتدفق في مكالمة جماعية
+» الصوت `1-200` - ضبط مستوى صوت الموسيقى (يجب أن يكون userbot مسؤولاً)
+» ريلود - لاعادة تصحيح اخطاء ورفع الادمنين الجدد
+» انضم - لادعوه الحساب المساعد للمجموعه
+» اخرج - لخروج الحساب المساعد من المجموعه
 
-» /pause - pause the current track being played
-» /resume - play the previously paused track
-» /skip - goes to the next track
-» /stop - stop playback of the track and clears the queue
-» /vmute - mute the streamer userbot on group call
-» /vunmute - unmute the streamer userbot on group call
-» /volume `1-200` - adjust the volume of music (userbot must be admin)
-» /reload - reload bot and refresh the admin data
-» /userbotjoin - invite the userbot to join group
-» /userbotleave - order userbot to leave from group
-
-⚡️ __Powered by {BOT_NAME} AI__""",
+⚡️ __بالدعم من  {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="command_list")]]
         ),
     )
 
@@ -232,14 +231,14 @@ async def owner_set(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""✏️ Command list for bot owner.
 
-» /gban (`username` or `user_id`) - for global banned people, can be used only in group
-» /ungban (`username` or `user_id`) - for un-global banned people, can be used only in group
+» حظر عام (`username` or `user_id`) - for global banned people, can be used only in group
+» الغاء العام (`username` or `user_id`) - for un-global banned people, can be used only in group
 » /update - update your bot to latest version
-» /restart - restart your bot directly
+» اعادة التشغيل - restart your bot directly
 » /leaveall - order userbot to leave from all group
 » /leavebot (`chat id`) - order bot to leave from the group you specify
-» /broadcast (`message`) - send a broadcast message to all groups in bot database
-» /broadcast_pin (`message`) - send a broadcast message to all groups in bot database with the chat pin
+» تثبيت (`message`) - send a broadcast message to all groups in bot database
+» التثبيت (`message`) - send a broadcast message to all groups in bot database with the chat pin
 
 ⚡ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
