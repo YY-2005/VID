@@ -35,7 +35,7 @@ from pyrogram.types import (
 )
 
 
-@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["ريلود", f"reload@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 @check_blacklist()
 async def update_admin(client, message: Message):
@@ -105,12 +105,12 @@ async def resume(client, m: Message):
     if chat_id in QUEUE:
         try:
             if await is_music_playing(chat_id):
-                await m.reply("ℹ️ The music is already resumed.")
+                await m.reply("ℹ️ تم استئناف الموسيقى بالفعل.")
                 return
             await calls.resume_stream(chat_id)
             await music_on(chat_id)
             await m.reply(
-                "▶️ **Track resumed.**\n\n• **To pause the stream, use the**\n» /pause command."
+                "▶ ️ ** تم استئناف المسار. ** \ n \ n • ** لإيقاف البث مؤقتًا ، استخدم ** \ n »أمر وقف."
             )
         except Exception as e:
             traceback.print_exc()
@@ -119,7 +119,7 @@ async def resume(client, m: Message):
         await m.reply("❌ **nothing is streaming**")
 
 
-@Client.on_message(command(["skip", f"skip@{BOT_USERNAME}", "vskip"]) & other_filters)
+@Client.on_message(command(["تخطي", f"skip@{BOT_USERNAME}", "vskip"]) & other_filters)
 @authorized_users_only
 @check_blacklist()
 async def skip(c: Client, m: Message):
@@ -130,7 +130,7 @@ async def skip(c: Client, m: Message):
         if op == 0:
             await c.send_message(chat_id, "❌ nothing is currently playing")
         elif op == 1:
-            await c.send_message(chat_id, "» There's no more music in queue to skip, userbot leaving video chat.")
+            await c.send_message(chat_id, "»ليس هناك المزيد من الموسيقى في قائمة الانتظار لتخطيها ، يغادر المستخدم الروبوت دردشة الفيديو.")
         elif op == 2:
             await c.send_message(chat_id, "🗑️ Clearing the **Queues**\n\n**• userbot** leaving video chat.")
         else:
@@ -146,7 +146,7 @@ async def skip(c: Client, m: Message):
                 chat_id,
                 photo=image,
                 reply_markup=InlineKeyboardMarkup(buttons),
-                caption=f"⏭ **Skipped** to the next track.\n\n🗂 **Name:** [{op[0]}]({op[1]})\n💭 **Chat:** `{chat_id}`\n🧸 **Request by:** {requester}",
+                caption=f"⏭ ** تم التخطي ** إلى المسار التالي. \ n \ n🗂 ** الاسم: ** [{op [0]}] ({op [1]}) \ n💭 ** الدردشة: ** `{chat_id } `\ n   ** طلب بواسطة: ** {requester}",
             )
             remove_if_exists(image)
     else:
@@ -168,7 +168,7 @@ async def skip(c: Client, m: Message):
 
 
 @Client.on_message(
-    command(["mute", f"mute@{BOT_USERNAME}", "vmute"]) & other_filters
+    command(["كتم", f"mute@{BOT_USERNAME}", "vmute"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
@@ -192,7 +192,7 @@ async def mute(client, m: Message):
 
 
 @Client.on_message(
-    command(["unmute", f"unmute@{BOT_USERNAME}", "vunmute"]) & other_filters
+    command(["الغاء الكتم", f"unmute@{BOT_USERNAME}", "vunmute"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
@@ -324,7 +324,7 @@ async def cbunmute(_, query: CallbackQuery):
 
 
 @Client.on_message(
-    command(["volume", f"volume@{BOT_USERNAME}", "vol"]) & other_filters
+    command(["الصوت", f"volume@{BOT_USERNAME}", "vol"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
