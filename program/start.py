@@ -122,7 +122,7 @@ async def alive(c: Client, message: Message):
         ]
     )
 
-    alive = f"** مرحبًا {message.from_user.mention ()} ، أنا {BOT_NAME} ** \ n \ n🧑🏼‍💻 مطوري: [{ALIVE_NAME}] (https://t.me/ {OWNER_USERNAME}) \ n👾 إصدار Bot: `v {__ version __}` \ n🔥 إصدار Pyrogram: `{pyrover}` \ n🐍 إصدار Python: `{__python_version __}` \ n✨ إصدار PyTgCalls: `{pytover .__ الإصدار __}` \ n🆙 حالة وقت التشغيل: `{uptime}` \ n \ n❤ ** شكرًا لإضافتي هنا ، لتشغيل الفيديو والموسيقى على دردشة الفيديو الخاصة بمجموعتك **"
+    alive = f"**Hello {message.from_user.mention()}, i'm {BOT_NAME}**\n\n🧑🏼‍💻 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_USERNAME})\n👾 Bot Version: `v{__version__}`\n🔥 Pyrogram Version: `{pyrover}`\n🐍 Python Version: `{__python_version__}`\n✨ PyTgCalls Version: `{pytover.__version__}`\n🆙 Uptime Status: `{uptime}`\n\n❤ **Thanks for Adding me here, for playing video & music on your Group's video chat**"
 
     await c.send_photo(
         chat_id,
