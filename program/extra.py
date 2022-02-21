@@ -93,7 +93,7 @@ async def broadcast_message_pin(c: Client, message: Message):
             except Exception:
                 pass
         await message.reply_text(
-            f"✅ Broadcast complete in {sent} Group.\n📌 Sent with {pin} chat pins."
+            f"✅ اكتمل التثبيت في {sent} المجموعه. \ n📌 مرسل مع دردشة {pin} تثبيت في."
         )
         return
     if len(message.command) < 2:
@@ -125,7 +125,7 @@ async def broadcast_message_pin(c: Client, message: Message):
     )
 
 
-@Client.on_message(command(["stats", f"stats@{uname}"]) & ~filters.edited)
+@Client.on_message(command(["الاحصائيات", f"stats@{uname}"]) & ~filters.edited)
 @sudo_users_only
 async def bot_statistic(c: Client, message: Message):
     name = me_bot.first_name
@@ -152,7 +152,7 @@ async def bot_statistic(c: Client, message: Message):
     await msg.edit(tgm, disable_web_page_preview=True)
 
 
-@Client.on_message(command(["calls", f"calls@{uname}"]) & ~filters.edited)
+@Client.on_message(command(["المكالمات", f"calls@{uname}"]) & ~filters.edited)
 @sudo_users_only
 async def active_calls(c: Client, message: Message):
     served_chats = []
