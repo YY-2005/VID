@@ -184,7 +184,7 @@ async def new_chat(c: Client, m: Message):
             return await m.reply(
                 "❤️ شكرًا لإضافتي إلى ** المجموعة **! \ n \ n"
                 "عيّنني كمسؤول في ** المجموعة ** ، وإلا فلن أتمكن من العمل بشكل صحيح ، ولا تنس كتابة `انضم` لدعوة المساعد. \ n \ n"
-                "بمجرد الانتهاء ، اكتب` reload` "،
+                "Once done, then type `ريلود`",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
